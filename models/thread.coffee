@@ -8,7 +8,7 @@ threadSchema = new Schema
   created: type: Date, default: Date.now
   longitude: type: Number
   latitude: type: Number
-  comments: type: [Schema.Types.ObjectId], ref: 'Comment'
+  comments: [type: Schema.Types.ObjectId, ref: 'Comment']
 
 threadSchema.virtual("coords").get ->
   [@longitude, @latitude]
