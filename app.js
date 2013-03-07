@@ -2,14 +2,23 @@
  * Module dependencies.
  */
 
+require('coffee-script');
+
 var express = require('express')
   , routes = require('./routes')
-  , user = require('./routes/user')
   , post = require('./routes/post')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , fs = require('fs');
 
 var app = express();
+
+var modelsPath = __dirname + '/models';
+
+fs.readdirSync(modelsPath).forEach(function(file) {
+  return require("" + modelsPath + "/" + file);
+});
+
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
@@ -20,6 +29,8 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
+  app.use(routes.middleware)
+  app.use('/post', post.middleware)
   app.use(express.static(path.join(__dirname, 'public')));
 });
 
@@ -27,10 +38,6 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
-app.get('/users', user.list);
-
-app.post('/post', post.index);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
