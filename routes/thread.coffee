@@ -28,7 +28,7 @@ router.post '/:id/comment', (req, res) ->
   Thread.findById req.params.id, (err, thread) ->
     { text } = req.body
 
-    comment = new Comment { text, threadId: req.params.id }
+    comment = new Comment { text, thread: req.params.id }
 
     thread.comments.push comment._id
 

@@ -4,7 +4,7 @@ Schema = mongoose.Schema
 threadSchema = new Schema
   title: type: String, required: true
   text: type: String
-  userId: type: Schema.Types.ObjectId, ref: 'User'
+  user: type: Schema.Types.ObjectId, ref: 'User'
   created: type: Date, default: Date.now
   longitude: type: Number
   latitude: type: Number
