@@ -1,14 +1,10 @@
-mongoose = require("mongoose")
+mongoose = require 'mongoose'
 Schema = mongoose.Schema
-
-commentSchema = new Schema
-  text: type: String, required: true
-  userId: type: Schema.Types.ObjectId, ref: 'User', required: true
-  created: type: String
 
 threadSchema = new Schema
   title: type: String, required: true
-  userId: type: Schema.Types.ObjectId, ref: 'User', required: true
+  text: type: String
+  userId: type: Schema.Types.ObjectId, ref: 'User'
   created: type: Date, default: Date.now
   longitude: type: Number
   latitude: type: Number
@@ -19,4 +15,3 @@ threadSchema.virtual("coords").get ->
 
 # Set Mongoose Model
 module.exports = mongoose.model "Thread", threadSchema
-module.exports = mongoose.model "Comment", commentSchema

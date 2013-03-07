@@ -1,0 +1,9 @@
+<h1>{{thread.title}}</h1>
+<p>{{thread.text}}</p>
+
+<h3>Reply</h3>
+<form action='/thread/{{_id}}/comment' method='post'>
+  <p>Post</p>
+  <textarea name='text'></textarea>
+  <button type='submit'>Submit</button>
+</form>
