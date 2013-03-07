@@ -1,12 +1,5 @@
-{{#each threads}}
-  <a href="/thread/{{_id}}">{{title}}</a>
-{{/each}}
-
-<h3>New Thread</h3>
-<form action='/thread/new' method='post'>
-  <p>Title</p>
-  <input name='title' />
-  <p>Post</p>
-  <textarea name='text'></textarea>
-  <button type='submit'>Submit</button>
-</form>
+<ol>
+  {{#each threads}}
+    <li><a href="/thread/{{_id}}">{{title}}</a></li>
+  {{/each}}
+</ol>

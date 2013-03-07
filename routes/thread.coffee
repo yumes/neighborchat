@@ -4,6 +4,9 @@ router = new express.Router()
 mongoose = require 'mongoose'
 Thread = mongoose.model 'Thread'
 
+router.get '/new', (req, res) ->
+  res.render 'newThread', title: 'New Thread'
+
 router.post '/new', (req, res) ->
   { title, text } = req.body
 
