@@ -11,6 +11,8 @@
     "mongoose": "~3.5.5",
     "coffee-script": "~1.6.1",
     "hbs": "~2.0.2",
-    "stylus": "~0.32.1"
+    "stylus": "~0.32.1",
+    "connect-mongo": "~0.3.2",
+    "node-uuid": "~1.4.0"
   }
 }

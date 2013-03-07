@@ -4,7 +4,7 @@ Schema = mongoose.Schema
 commentSchema = new Schema
   text: type: String, required: true
   thread: type: Schema.Types.ObjectId, ref: 'Thread', required: true
-  user: type: Schema.Types.ObjectId, ref: 'User'
+  user: type: String
   created: type: String
 
 module.exports = mongoose.model "Comment", commentSchema

@@ -1,9 +1,10 @@
 <h1>{{thread.title}}</h1>
+<p>By {{thread.user}}</p>
 <p>{{thread.text}}</p>
 
 <h3>Comments</h3>
 {{#each thread.comments}}
-  <p>{{text}}</p>
+  <p>{{text}} ({{user}})</p>
 {{/each}}
 
 <h3>Reply</h3>
